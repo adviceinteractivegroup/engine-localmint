@@ -6,8 +6,6 @@
   "scripts": {
     "eslint": "eslint .",
     "mocha": "mocha",
-    "cover": "nyc npm run mocha",
-    "check-coverage": "nyc check-coverage --statements 85 --branches 85 --functions 85 --lines 85",
     "test": "npm run eslint && npm run mocha && npm run testclient && npm run testnoresults",
     "testclient": "lambda-local -l ./index.js  -h handler -t 100 -e ./test/lambda/client",
     "testnoresults": "lambda-local -l ./index.js  -h handler -t 100 -e ./test/lambda/no-results",
@@ -35,8 +33,7 @@
     "gulp": "^3.9.1",
     "gulp-zip": "^4.0.0",
     "lodash": "^4.17.15",
-    "request": "^2.81.0",
-    "require-all": "^2.2.0"
+    "request": "^2.81.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
@@ -44,24 +41,5 @@
     "eslint-config-google": "^0.11.0",
     "lambda-local": "^1.4.2",
     "mocha": "^3.3.0",
-    "nyc": "^11.0.2"
-  },
-  "nyc": {
-    "reporter": [
-      "lcov",
-      "text",
-      "html"
-    ],
-    "exclude": [
-      "lib/config.utils.js",
-      "utils/config.js",
-      "test",
-      "test{,*}.js",
-      "**/*.test.js",
-      "**/__tests__/**",
-      "**/node_modules/**",
-      "build",
-      "dist"
-    ]
   }
 }
