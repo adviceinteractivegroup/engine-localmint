@@ -1,0 +1,45 @@
+{
+  "name": "engine-localmint",
+  "version": "1.0.0",
+  "description": "module for scraping localmint",
+  "main": "index.js",
+  "scripts": {
+    "eslint": "eslint .",
+    "mocha": "mocha",
+    "test": "npm run eslint && npm run mocha && npm run testclient && npm run testnoresults",
+    "testclient": "lambda-local -l ./index.js  -h handler -t 100 -e ./test/lambda/client",
+    "testnoresults": "lambda-local -l ./index.js  -h handler -t 100 -e ./test/lambda/no-results",
+    "testdebug": "NODE_DEBUG=data lambda-local -l ./index.js  -h handler -t 100 -e ./test/lambda/client"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adviceinteractivegroup/engine-localmint.git"
+  },
+  "keywords": [
+    "localmint",
+    "scraper",
+    "advice"
+  ],
+  "author": "piero",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adviceinteractivegroup/engine-localmint/issues"
+  },
+  "homepage": "https://github.com/adviceinteractivegroup/engine-localmint#readme",
+  "dependencies": {
+    "advice-util": "git+ssh://git@github.com/adviceinteractivegroup/npm-package-util.git",
+    "aws-sdk": "^2.52.0",
+    "cheerio": "^0.22.0",
+    "gulp": "^3.9.1",
+    "gulp-zip": "^4.0.0",
+    "lodash": "^4.17.15",
+    "request": "^2.81.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "eslint": "^5.10.0",
+    "eslint-config-google": "^0.11.0",
+    "lambda-local": "^1.4.2",
+    "mocha": "^3.3.0",
+  }
+}
